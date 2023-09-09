@@ -18,7 +18,7 @@ config.color_scheme = 'ayu'
 -- config.color_scheme = 'Catppuccin Mocha'
 
 config.font = wezterm.font 'CaskaydiaCove Nerd Font Mono'
-config.font_size = 18
+config.font_size = 20
 
 -- better underline
 config.underline_thickness = 3

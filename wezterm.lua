@@ -13,13 +13,25 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'kanagawabones'
--- config.color_scheme = 'ayu'
+-- config.color_scheme = 'kanagawabones'
+
+local ayu = wezterm.color.get_builtin_schemes()['ayu']
+ayu.background = 'black'
+config.color_scheme = 'ayu'
+config.color_schemes = {
+  ['ayu'] = ayu,
+}
+
 -- config.color_scheme = 'Catppuccin Mocha'
 config.force_reverse_video_cursor = true
 
 config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Regular' })
-config.font_size = 20
+config.font_size = 18
+
+-- tab bar
+config.window_frame = {
+  font_size = 15.0,
+}
 
 -- better underline
 config.underline_thickness = 3
@@ -27,7 +39,7 @@ config.underline_position = -4
 
 -- avoid using underline_thickness for cursor_thickness
 config.cursor_thickness = 1
-config.default_cursor_style = 'SteadyBar'
+config.default_cursor_style = 'BlinkingBar'
 
 -- disable ligatures
 config.harfbuzz_features = {"calt=0", "clig=0", "liga=0"}

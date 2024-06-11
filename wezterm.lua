@@ -17,6 +17,7 @@ end
 
 local ayu = wezterm.color.get_builtin_schemes()['ayu']
 ayu.background = 'black'
+ayu.foreground = 'white'
 config.color_scheme = 'ayu'
 config.color_schemes = {
   ['ayu'] = ayu,
@@ -30,8 +31,9 @@ config.font_size = 18
 
 -- tab bar
 config.window_frame = {
-  font_size = 15.0,
+  font_size = 14.0,
 }
+config.hide_tab_bar_if_only_one_tab = true
 
 -- better underline
 config.underline_thickness = 3

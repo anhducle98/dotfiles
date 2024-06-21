@@ -16,28 +16,16 @@ end
 local theme = wezterm.color.get_builtin_schemes()['Vs Code Dark+ (Gogh)']
 theme.background = 'black'
 
-config.webgpu_preferred_adapter = {
-  backend = 'Vulkan',
-  device = 8066,
-  device_type = 'DiscreteGpu',
-  driver = 'NVIDIA',
-  driver_info = '470.57.02',
-  name = 'NVIDIA GeForce GTX 1650',
-  vendor = 4318,
-}
-config.front_end = "WebGpu"
-
 config.color_scheme = 'Custom'
 config.color_schemes = {
   ['Custom'] = theme,
 }
 
--- config.color_scheme = 'Catppuccin Mocha'
 config.force_reverse_video_cursor = true
 
 -- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Book' })
 config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
-config.font_size = 16
+config.font_size = 18
 
 -- better underline
 config.underline_position = -4

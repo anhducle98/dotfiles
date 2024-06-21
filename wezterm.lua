@@ -13,30 +13,33 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
--- config.color_scheme = 'kanagawabones'
+local theme = wezterm.color.get_builtin_schemes()['Vs Code Dark+ (Gogh)']
+theme.background = 'black'
 
-local ayu = wezterm.color.get_builtin_schemes()['ayu']
-ayu.background = 'black'
-ayu.foreground = 'white'
-config.color_scheme = 'ayu'
+config.webgpu_preferred_adapter = {
+  backend = 'Vulkan',
+  device = 8066,
+  device_type = 'DiscreteGpu',
+  driver = 'NVIDIA',
+  driver_info = '470.57.02',
+  name = 'NVIDIA GeForce GTX 1650',
+  vendor = 4318,
+}
+config.front_end = "WebGpu"
+
+config.color_scheme = 'Custom'
 config.color_schemes = {
-  ['ayu'] = ayu,
+  ['Custom'] = theme,
 }
 
 -- config.color_scheme = 'Catppuccin Mocha'
 config.force_reverse_video_cursor = true
 
-config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Regular' })
-config.font_size = 18
-
--- tab bar
-config.window_frame = {
-  font_size = 14.0,
-}
-config.hide_tab_bar_if_only_one_tab = true
+-- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Book' })
+config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
+config.font_size = 16
 
 -- better underline
-config.underline_thickness = 3
 config.underline_position = -4
 
 -- avoid using underline_thickness for cursor_thickness
@@ -53,6 +56,13 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+
+-- tab bar
+config.window_frame = {
+  font = wezterm.font { family = 'San Francisco Display' },
+  font_size = 14.0,
+}
+config.hide_tab_bar_if_only_one_tab = true
 
 -- and finally, return the configuration to wezterm
 return config

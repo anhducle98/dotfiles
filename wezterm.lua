@@ -13,8 +13,38 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-local theme = wezterm.color.get_builtin_schemes()['Vs Code Dark+ (Gogh)']
-theme.background = 'black'
+
+-- VS Code Terminal
+theme = {
+  ansi = {
+    '#000000',
+    '#BD3F39',
+    '#56B97F',
+    '#E5E54D',
+    '#3B71C2',
+    '#AE48B6',
+    '#4CA6C9',
+    '#E5E5E5',
+  },
+  background = '#000000',
+  brights = {
+    '#767676',
+    '#DF5953',
+    '#64CE91',
+    '#F5F566',
+    '#518CE3',
+    '#C975D1',
+    '#5AB6D7',
+    '#E5E5E5',
+  },
+  cursor_bg = '#CCCCCC',
+  cursor_border = '#CCCCCC',
+  cursor_fg = '#1E1E1E',
+  foreground = '#CCCCCC',
+  indexed = {},
+}
+
+-- wezterm.log_info(wezterm.to_string(theme))
 
 config.color_scheme = 'Custom'
 config.color_schemes = {
@@ -24,7 +54,8 @@ config.color_schemes = {
 config.force_reverse_video_cursor = true
 
 -- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Book' })
-config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
+-- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
+config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiBold' })
 config.font_size = 18
 
 -- better underline

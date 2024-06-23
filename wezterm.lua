@@ -81,7 +81,41 @@ config.window_frame = {
   font = wezterm.font { family = 'San Francisco Display' },
   font_size = 14.0,
 }
+config.tab_max_width = 64
 config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = false
+
+config.colors = {
+  tab_bar = {
+    background = "#1C1C1C",
+
+    active_tab = {
+      bg_color = '#E5E5E5',
+      fg_color = '#000000',
+      intensity = 'Bold',
+    },
+    inactive_tab = {
+      bg_color = '#2A2A2A',
+      fg_color = '#CCCCCC',
+      intensity = 'Half',
+    },
+    inactive_tab_hover = {
+      bg_color = '#333333',
+      fg_color = '#DDDDDD',
+      italic = false,
+    },
+    new_tab = {
+      bg_color = '#2A2A2A',
+      fg_color = '#CCCCCC',
+      italic = false,
+    },
+    new_tab_hover = {
+      bg_color = '#333333',
+      fg_color = '#DDDDDD',
+      italic = false,
+    },
+  },
+}
 
 -- and finally, return the configuration to wezterm
 return config

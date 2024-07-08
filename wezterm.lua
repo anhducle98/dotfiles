@@ -81,7 +81,7 @@ config.window_padding = {
 --   font = wezterm.font { family = 'San Francisco Display' },
 --   font_size = 14.0,
 -- }
-config.tab_max_width = 64
+config.tab_max_width = 16
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 
@@ -125,7 +125,7 @@ function tab_title(tab_info)
   end
   -- Otherwise, use the title from the active pane
   -- in that tab
-  return tab_info.active_pane.title
+  return tab_info.active_pane.title:gmatch("%w+")()
 end
 
 wezterm.on(

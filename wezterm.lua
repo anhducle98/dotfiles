@@ -54,9 +54,9 @@ config.color_schemes = {
 config.force_reverse_video_cursor = true
 
 -- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Book' })
--- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
-config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiBold' })
-config.font_size = 18
+config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
+-- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiBold' })
+config.font_size = 16
 
 -- better underline
 config.underline_position = -4
@@ -77,10 +77,10 @@ config.window_padding = {
 }
 
 -- tab bar
-config.window_frame = {
-  font = wezterm.font { family = 'San Francisco Display' },
-  font_size = 14.0,
-}
+-- config.window_frame = {
+--   font = wezterm.font { family = 'San Francisco Display' },
+--   font_size = 14.0,
+-- }
 config.tab_max_width = 64
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
@@ -97,7 +97,7 @@ config.colors = {
     inactive_tab = {
       bg_color = '#2A2A2A',
       fg_color = '#CCCCCC',
-      intensity = 'Half',
+      intensity = 'Normal',
     },
     inactive_tab_hover = {
       bg_color = '#333333',
@@ -116,6 +116,25 @@ config.colors = {
     },
   },
 }
+
+function tab_title(tab_info)
+  local title = tab_info.tab_title
+  -- if the tab title is explicitly set, take that
+  if title and #title > 0 then
+    return title
+  end
+  -- Otherwise, use the title from the active pane
+  -- in that tab
+  return tab_info.active_pane.title
+end
+
+wezterm.on(
+  'format-tab-title',
+  function(tab, tabs, panes, config, hover, max_width)
+    local title = tab_title(tab)
+    return '  ' .. title .. ' '
+  end
+)
 
 -- and finally, return the configuration to wezterm
 return config

@@ -54,9 +54,9 @@ config.color_schemes = {
 config.force_reverse_video_cursor = true
 
 -- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'Book' })
-config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
--- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiBold' })
-config.font_size = 16
+-- config.font = wezterm.font('CaskaydiaCove Nerd Font Mono')
+config.font = wezterm.font('CaskaydiaCove Nerd Font Mono', { weight = 'DemiBold' })
+config.font_size = 20
 
 -- better underline
 config.underline_position = -4
